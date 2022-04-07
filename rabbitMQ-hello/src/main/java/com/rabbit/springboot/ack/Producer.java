@@ -23,7 +23,7 @@ public class Producer {
 
 
     @GetMapping("sendMessage/{message}")
-    public void sendMessage(@PathVariable String message) {//指定消息 id 为 1
+    public void sendMessage(@PathVariable String  message) {//指定消息 id 为 1
         CorrelationData correlationData1 = new CorrelationData("1");
         String routingKey = "key1";
         rabbitTemplate.convertAndSend(CONFIRM_EXCHANGE_NAME, routingKey, message + routingKey, correlationData1);
