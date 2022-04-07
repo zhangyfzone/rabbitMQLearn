@@ -37,7 +37,7 @@ public class Consumer01 {
         params.put("x-dead-letter-exchange", DEAD_EXCHANGE);
         //正常队列设置死信 routing-key 参数 key 是固定值
         params.put("x-dead-letter-routing-key", "lisi");
-        //第二种情况： 设置队列长度，超过此长度的消息进入死信队列
+        //第二种情况： 设置队列长度，超过此长度的消息进入死信队列,需要注释生产者中的TTL参数
         params.put("x-max-length", "6");
         channel.queueDeclare(NORMAL_QUEUE, false, false, false, params);
         channel.queueBind(NORMAL_QUEUE, NORMAL_EXCHANGE, "zhangsan");
